@@ -3,17 +3,18 @@ using StatePattern.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StatePattern.StateMachine;
 
 namespace StatePattern.Enemy
 {
     public class ShootingState : IState
     {
-        public OnePunchManController Owner { get; set; }
-        private OnePunchManStateMachine stateMachine;
+        public EnemyController Owner { get; set; }
+        private IStateMachine stateMachine;
         private PlayerController target;
         private float shootTimer;
 
-        public ShootingState(OnePunchManStateMachine stateMachine) => this.stateMachine = stateMachine;
+        public ShootingState(IStateMachine stateMachine) => this.stateMachine = stateMachine;
 
         public void OnStateEnter()
         {
