@@ -8,10 +8,10 @@ namespace StatePattern.Enemy
         public HitManController(EnemyScriptableObject enemyScriptableObject) : base(enemyScriptableObject)
         {
             enemyView.SetController(this);
-            CreateStateMAchine();
+            CreateStateMachine();
             stateMachine.ChangeState(StateMachine.States.IDLE);
         }
-        private void CreateStateMAchine() => stateMachine = new HitManStateMachine(this);
+        private void CreateStateMachine() => stateMachine = new HitManStateMachine(this);
 
         public override void UpdateEnemy()
         {
